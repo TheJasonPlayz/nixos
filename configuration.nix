@@ -21,7 +21,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -108,14 +107,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  	vscodium
-  	nixd
   	discord
   	prismlauncher
     gparted
     ntfs3g
     razergenie
-    nixfmt-rfc-style
     protonup-qt
     lutris
     heroic
