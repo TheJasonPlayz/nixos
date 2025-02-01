@@ -1,0 +1,3 @@
+                 │ │ ├─ 6821 /nix/store/4ij5fh914292467myjmpsd32nda2jm5w-firefox-134.0.2/lib/firefox/firefox -contentproc -parentBuildID 20250120135430 -prefsHandle 0 -prefsLen 30608 -prefMapHandle 1 -prefMapSize 259306 -sandboxReporter 2 -chrootClient 3 -ipcHandle 4 -initialChannelId {39379adc-3604-4c29-bf72-a00e3d42f10e} -parentPid 6694 -crashReporter 5 -appDir /nix/store/4ij5fh914292467myjmpsd32nda2jm5w-firefox-134.0.2/lib/firefox/browser 1 socket
+                 │ │ ├─ 7706 /nix/store/xsshjsl2aj2kfaghx688f71fxcdx0sqg-speech-dispatcher-0.11.5/bin/speech-dispatcher --spawn --communication-method unix_socket --socket-path /run/user/1000/speech-dispatcher/speechd.sock
+                   │ └─28573 grep socket
