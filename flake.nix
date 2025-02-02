@@ -8,15 +8,19 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-parts.url = "github:hercules-ci/flake-parts";
     nur = {
       url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = 
-    inputs@{ nixpkgs, home-manager, flake-parts, ... }: 
+    inputs@{ nixpkgs, lanzaboote, ... }: 
     let
       system = "x86_64-linux";
       timeZone = "America/Denver";
@@ -59,6 +63,7 @@
         pc = nixosSystem {
           inherit system;
           modules = [
+            lanzaboote.nixosModules.lanzaboote
             ./config/audio.nix
             ./config/display.nix
             ./config/users.nix 
@@ -74,6 +79,11 @@
                 # home-manager.users.${username}.imports = {
                 #   
                 # }
+                boot.loader.systemd-boot.enable = nixpkgs.lib.mkForce false;
+                boot.lanzaboote = {
+                  enable = true;
+                  pkiBundle = "/etc/secureboot";
+                };
               })
           ] ++ pcPkgs;
         };

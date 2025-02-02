@@ -10,6 +10,10 @@
       device = "/dev/disk/by-uuid/05f07eec-5305-4006-9eee-1a5840592ea4";
       fsType = "xfs";
     };
+    "/boot" = {
+      device = "dev/disk/by-partuuid/c913de29-e9e7-4b88-bdfd-321cf6f50b31";
+      fsType = "vfat";
+    };
   };
 
   boot.supportedFilesystems = {
@@ -17,10 +21,6 @@
   };
   boot.loader = {
     timeout = 15;
-    grub = {
-      enable = true;
-      device = "/dev/disk/by-uuid/c913de29-e9e7-4b88-bdfd-321cf6f50b31";
-    };
+    efi.canTouchEfiVariables = true;
   };
-  system.stateVersion = "24.11"; # Did you read the comment?
 }

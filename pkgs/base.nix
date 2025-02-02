@@ -1,5 +1,5 @@
 { pkgs, lib, config, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ parted ntfs3g libimobiledevice usbmuxd ];
+  environment.systemPackages = with pkgs; [ sbctl parted ntfs3g libimobiledevice usbmuxd git];
 }

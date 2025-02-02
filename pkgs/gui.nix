@@ -6,5 +6,6 @@
     libreoffice-qt6
     gparted
     vscodium
+    anki-bin
   ];
 }
