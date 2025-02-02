@@ -12,6 +12,6 @@ else
 fi
 
 if [[ "$switch" != "n" ]] then
-  sudo nixos-rebuild switch
+  sudo nixos-rebuild switch --flake /etc/nixos#pc "$@"
 fi
 

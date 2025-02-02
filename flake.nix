@@ -20,7 +20,6 @@
     let
       system = "x86_64-linux";
       timeZone = "America/Denver";
-      username = "jasonw";
       nixosSystem = nixpkgs.lib.nixosSystem;
       serverPkgs = [
         # home-manager.nixosModules.home-manager {
@@ -62,59 +61,56 @@
           modules = [
             ./config/audio.nix
             ./config/display.nix
-            ./config/users.nix { inherit username; }
+            ./config/users.nix 
             ./hosts/pc/boot.nix
             ./hosts/pc/hardware.nix
             ./hosts/pc/software.nix
-            pcPkgs
             ({pkgs, ...}: 
               {
-                networking.hostName = "${username}-pc";
+                networking.hostName = "jasonw-pc";
                 time.timeZone = timeZone;
                 # environment.systemPackages = with pkgs; [ nixd nixfmt-rfc-style vscodium git ];
                 # home-manager.users.${username}.imports = {
                 #   
                 # }
               })
-          ];
+          ] ++ pcPkgs;
         };
         laptop1 = nixosSystem {
           inherit system;
           modules = [
             ./config/audio.nix
             ./config/display.nix
-            ./config/users.nix { inherit username; }
+            ./config/users.nix 
             ./config/k8s.nix
             ./hosts/laptop/boot.nix
             ./hosts/laptop/hardware.nix
             ./hosts/laptop/software.nix
-            laptopPkgs
             ({pkgs, ...}: {
-                networking.hostName = "${username}-laptop1";
+                networking.hostName = "jasonw-laptop1";
                 time.timeZone = timeZone;
                 # home-manager.users.${username}.imports = {
                 #   
                 # }
             })
-          ];
+          ] ++ laptopPkgs;
         };
         laptop2 = nixosSystem {
           inherit system;
           modules = [
-            ./config/users.nix { inherit username; }
+            ./config/users.nix 
             ./config/k8s.nix
-            serverPkgs
             ./hosts/server/boot.nix
             ./hosts/server/hardware.nix
             ./hosts/server/software.nix
             ({pkgs, ...}: {
-              networking.hostName = "${username}-laptop2";
+              networking.hostName = "jasonw-laptop2";
               time.timeZone = timeZone;
               # home-manager.users.${username}.imports = {
               #   
               # }
             })
-          ];
+          ] ++ serverPkgs;
         };
       };
       };

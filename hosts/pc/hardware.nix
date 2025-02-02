@@ -9,9 +9,6 @@
   };
   hardware.graphics.enable32Bit = true;
 
-  /* Audio */
-  hardware.pulseaudio.enable = true;
-
   /* Peripherals */ 
   hardware.openrazer.enable = true;
   hardware.openrazer.users = [ "jasonw" ];

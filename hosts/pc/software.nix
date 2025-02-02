@@ -5,7 +5,7 @@
 
   networking = {
     networkmanager.enable = true;
-    useDHCP = true;
+    useDHCP = lib.mkDefault true;
     dhcpcd.enable = true;
   };
 
@@ -17,6 +17,6 @@
   };
 
   services = {
-    ssh.enable = true;
+    openssh.enable = true;
   };
 }
