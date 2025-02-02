@@ -62,6 +62,7 @@
             ./config/audio.nix
             ./config/display.nix
             ./config/users.nix 
+            ./config/nixos.nix
             ./hosts/pc/boot.nix
             ./hosts/pc/hardware.nix
             ./hosts/pc/software.nix
@@ -83,6 +84,7 @@
             ./config/display.nix
             ./config/users.nix 
             ./config/k8s.nix
+            ./config/nixos.nix
             ./hosts/laptop/boot.nix
             ./hosts/laptop/hardware.nix
             ./hosts/laptop/software.nix
@@ -100,6 +102,7 @@
           modules = [
             ./config/users.nix 
             ./config/k8s.nix
+            ./config/nixos.nix
             ./hosts/server/boot.nix
             ./hosts/server/hardware.nix
             ./hosts/server/software.nix

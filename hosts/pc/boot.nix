@@ -22,4 +22,5 @@
       device = "/dev/disk/by-uuid/c913de29-e9e7-4b88-bdfd-321cf6f50b31";
     };
   };
+  system.stateVersion = "24.11"; # Did you read the comment?
 }
