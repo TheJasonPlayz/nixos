@@ -2,7 +2,6 @@ NIXOS_DIR=/etc/nixos/
 COPY_DIR=$(pwd)
 SCRIPT_DIR="$COPY_DIR/scripts"
 
-echo -e "Host Selection:\n(1). PC\n(2). Laptop 1\n(3). Laptop 2"; read host;
 read -p "To or from $NIXOS_DIR (anything else: to) (1: from)" direction
 read -p "Switch? (n/anything else): " switch
 
@@ -13,6 +12,7 @@ else
 fi
 
 if [[ "$switch" != "n" ]] then
+  echo -e "Host Selection:\n(1). PC\n(2). Laptop 1\n(3). Laptop 2"; read host;
   case $host in
     "1")
       HOST="pc"
