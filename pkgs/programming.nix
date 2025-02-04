@@ -7,5 +7,6 @@
     nixfmt-rfc-style
     pyenv
     fnm
+    vscodium
   ];
 }

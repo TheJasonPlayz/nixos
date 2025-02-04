@@ -3,9 +3,8 @@
 {
   environment.systemPackages = with pkgs; [
     discord
-    libreoffice-qt6
     gparted
-    vscodium
     anki-bin
+    obsidian
   ];
 }

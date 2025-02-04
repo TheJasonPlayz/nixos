@@ -5,5 +5,6 @@
     kubectl
     helm
     k0sctl
+    anki-sync-server
   ];
 } 
