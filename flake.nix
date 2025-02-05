@@ -128,7 +128,6 @@
           inherit system;
           modules = [
             ./config/users.nix 
-            ./config/k8s.nix
             ./config/nixos.nix
             ./hosts/server/boot.nix
             ./hosts/server/hardware.nix
