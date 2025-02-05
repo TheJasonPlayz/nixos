@@ -3,6 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     davinci-resolve
-    natron
+    # natron
   ];
 }

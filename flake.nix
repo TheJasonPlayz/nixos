@@ -17,10 +17,15 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    inputs.sops-nix = {
+      url = "github:Mic92/sops-nix";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = 
-    inputs@{ nixpkgs, lanzaboote, ... }: 
+    inputs@{ nixpkgs, lanzaboote, sops-nix,... }: 
     let
       system = "x86_64-linux";
       timeZone = "America/Denver";
@@ -30,33 +35,45 @@
         #   home-manager.useGlobalPkgs = true;
         #   home-manager.useUserPackages = true;
         # }
+        sops-nix.nixosModules.sops
         ./pkgs/base.nix
         ./pkgs/k8s.nix
         # ./pkgs/gaming.nix
         # ./pkgs/gui.nix
         # ./pkgs/programming.nix
+        # ./pkgs/multimedia.nix
+        # ./pkgs/office.nix
+        # ./pkgs/school.nix
       ];
       laptopPkgs = [
         # home-manager.nixosModules.home-manager {
         #   home-manager.useGlobalPkgs = true;
         #   home-manager.useUserPackages = true;
         # }
+        sops-nix.nixosModules.sops
         ./pkgs/base.nix
         ./pkgs/k8s.nix
         ./pkgs/gaming.nix
         ./pkgs/gui.nix
         ./pkgs/programming.nix
+        # ./pkgs/multimedia.nix
+        # ./pkgs/office.nix
+        # ./pkgs/school.nix
       ];
       pcPkgs = [
         # home-manager.nixosModules.home-manager {
         #   home-manager.useGlobalPkgs = true;
         #   home-manager.useUserPackages = true;
         # }
+        sops-nix.nixosModules.sops
         ./pkgs/base.nix
         # ./pkgs/k8s.nix
         ./pkgs/gaming.nix
         ./pkgs/gui.nix
         ./pkgs/programming.nix
+        ./pkgs/multimedia.nix
+        ./pkgs/office.nix
+        ./pkgs/school.nix
       ];  
     in {
       nixosConfigurations = {
@@ -64,10 +81,10 @@
           inherit system;
           modules = [
             lanzaboote.nixosModules.lanzaboote
+            ./config/nixos.nix
             ./config/audio.nix
             ./config/display.nix
             ./config/users.nix 
-            ./config/nixos.nix
             ./hosts/pc/boot.nix
             ./hosts/pc/hardware.nix
             ./hosts/pc/software.nix

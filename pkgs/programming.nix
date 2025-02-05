@@ -5,7 +5,7 @@
     nixd
     nil
     nixfmt-rfc-style
-    pyenv
+    python313
     fnm
     vscodium
   ];

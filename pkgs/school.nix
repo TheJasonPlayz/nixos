@@ -2,6 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    geogebra6
+    sageWithDoc
   ];
 }  
