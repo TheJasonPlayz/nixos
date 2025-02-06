@@ -110,7 +110,6 @@
             ./config/audio.nix
             ./config/display.nix
             ./config/users.nix 
-            ./config/k8s.nix
             ./config/nixos.nix
             ./hosts/laptop/boot.nix
             ./hosts/laptop/hardware.nix

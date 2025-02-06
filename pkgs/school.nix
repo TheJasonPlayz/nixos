@@ -2,6 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
-    sageWithDoc
+    sage
+    sagetex
+    python312Packages.jupyterlab
+    jupyter
   ];
 }  

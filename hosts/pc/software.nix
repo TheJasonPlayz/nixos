@@ -13,10 +13,11 @@
     firefox.enable = true;
     steam.enable = true;
     droidcam.enable = true;
+    chromium.enable = true;
     # obs-studio.enableVirtualCamera = true;
   };
 
   services = {
-    openssh.enable = true;
+    usbmuxd.enable = true;
   };
 }
