@@ -22,10 +22,11 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    foundryvtt.url = "github:reckenrode/nix-foundryvtt";
   };
 
   outputs = 
-    inputs@{ nixpkgs, lanzaboote, sops-nix,... }: 
+    inputs@{ nixpkgs, lanzaboote, sops-nix, foundryvtt, ... }: 
     let
       system = "x86_64-linux";
       timeZone = "America/Denver";
@@ -66,6 +67,7 @@
         #   home-manager.useUserPackages = true;
         # }
         sops-nix.nixosModules.sops
+        foundryvtt.nixosModules.foundryvtt
         ./pkgs/base.nix
         # ./pkgs/k8s.nix
         ./pkgs/gaming.nix
@@ -88,7 +90,6 @@
             ./hosts/pc/boot.nix
             ./hosts/pc/hardware.nix
             ./hosts/pc/software.nix
-            ./config/overlays.nix
             ({pkgs, ...}: 
               {
                 networking.hostName = "jasonw-pc";

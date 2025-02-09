@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 NIXOS_DIR=/etc/nixos/
 COPY_DIR=$(pwd)
 SCRIPT_DIR="$COPY_DIR/scripts"
@@ -27,3 +29,4 @@ if [[ "$switch" != "n" ]] then
   sudo nixos-rebuild switch --flake "/etc/nixos#$HOST" "$@"
 fi
 
+./sage-jupyterkernel.sh
