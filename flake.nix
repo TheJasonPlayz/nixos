@@ -88,6 +88,7 @@
             ./hosts/pc/boot.nix
             ./hosts/pc/hardware.nix
             ./hosts/pc/software.nix
+            ./config/overlays.nix
             ({pkgs, ...}: 
               {
                 networking.hostName = "jasonw-pc";
