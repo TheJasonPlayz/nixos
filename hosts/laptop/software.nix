@@ -11,11 +11,10 @@
   programs = {
     firefox.enable = true;
     steam.enable = true;
-    droidcam.enable = true;
     # obs-studio.enableVirtualCamera = true;
   };
 
   services = {
-    ssh.enable = true;
+    openssh.enable = true;
   };
 }

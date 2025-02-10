@@ -112,10 +112,11 @@
         laptop1 = nixosSystem {
           inherit system;
           modules = [
+            ./config/nixos.nix
+            ./config/nixpkgs.nix
             ./config/audio.nix
             ./config/display.nix
             ./config/users.nix 
-            ./config/nixos.nix
             ./config/i18n.nix
             ./hosts/laptop/boot.nix
             ./hosts/laptop/hardware.nix

@@ -1,15 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  /* GPU / Graphics */
-
-  hardware.graphics.enable32Bit = true;
-
-  /* Audio */
-  hardware.pulseaudio.enable = true;
-
-  /* Peripherals */ 
-
-  /* Time */
-  time.timeZone = "America/Denver";
+  hardware.enableRedistributableFirmware = true;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

@@ -1,16 +1,18 @@
 let 
-  version = "";
-  url = "";
+  version = "xmage_1.4.56V3";
+  url = "https://github.com/magefree/mage/releases/download/xmage_1.4.56V3/mage-full_1.4.56-dev_2025-02-09_16-07.zip";
+  installPhaseVer = pkgs: ver: pkgs.lib.substring 6 (builtins.stringLength version - 3) (builtins.replaceStrings ["b"] [""] version);
 in 
 final: prev: {
   xmage = prev.xmage.overrideAttrs (finalAttrs: prevAttrs: {
-    version = "${majorVersion}-${minorVersion}";
+    inherit version;
 
     src = final.fetchurl {
-      url = "https://github.com/magefree/mage/releases/download/xmage_${majorVersion}V${majorVersionRevision}/mage-full_${finalAttrs.version}.zip";
-      sha256 = "sha256-g72hKCzmG/cn2q+10HP5uFxiERKLV/nDZ1RJKMKWr+0=";
+      inherit url;
+      sha256 = "";
     };
 
-    installPhase = builtins.replaceStrings ["1.4.50"] [ majorVersion ] prevAttrs.installPhase;
+
+    installPhase = builtins.replaceStrings ["1.4.50"] [ (installPhaseVer final version) ] prevAttrs.installPhase;
   });
 }
