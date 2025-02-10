@@ -7,5 +7,7 @@
     protonup-qt
     lutris
     heroic
+    xmage
+    forge-mtg
   ];
 }

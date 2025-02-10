@@ -68,6 +68,7 @@
         # }
         sops-nix.nixosModules.sops
         foundryvtt.nixosModules.foundryvtt
+        lanzaboote.nixosModules.lanzaboote
         ./pkgs/base.nix
         # ./pkgs/k8s.nix
         ./pkgs/gaming.nix
@@ -81,9 +82,10 @@
       nixosConfigurations = {
         pc = nixosSystem {
           inherit system;
+          specialArgs = { inherit inputs; } ;
           modules = [
-            lanzaboote.nixosModules.lanzaboote
             ./config/nixos.nix
+            ./config/nixpkgs.nix
             ./config/audio.nix
             ./config/display.nix
             ./config/users.nix 

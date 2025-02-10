@@ -29,4 +29,4 @@ if [[ "$switch" != "n" ]] then
   sudo nixos-rebuild switch --flake "/etc/nixos#$HOST" "$@"
 fi
 
-./sage-jupyterkernel.sh
+# ./sage-jupyter.sh
