@@ -1,5 +1,5 @@
 { pkgs, lib, config, ... }:
 
 {
-  nixpkgs.overlays = [ ( import ../overlays/xmage.nix)]
+  nixpkgs.overlays = [ (import ../overlays/xmage.nix)];
 }

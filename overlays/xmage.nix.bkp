@@ -11,6 +11,6 @@ final: prev: {
       sha256 = "sha256-g72hKCzmG/cn2q+10HP5uFxiERKLV/nDZ1RJKMKWr+0=";
     };
 
-    installPhase = builtins.replaceStrings ["1.4.50"] [ majorVersion ] prevAttrs.installPhase;
+    installPhase = builtins.replaceStrings ["1.4.50"] [ majorVerson ] prevAttrs.installPhase;
   });
 }
