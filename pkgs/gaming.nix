@@ -7,7 +7,7 @@
     protonup-qt
     lutris
     heroic
-    forge-mtg
     xmage
+    cockatrice
   ];
 }
