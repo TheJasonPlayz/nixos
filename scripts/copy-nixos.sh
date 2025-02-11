@@ -19,6 +19,9 @@ if [[ "$switch" != "n" ]] then
     "1")
       HOST="pc"
       ;;
+    "")
+      HOST="pc"
+      ;;
     "2")
       HOST="laptop1"
       ;;

@@ -31,6 +31,10 @@
       system = "x86_64-linux";
       timeZone = "America/Denver";
       nixosSystem = nixpkgs.lib.nixosSystem;
+      pkgs = import nixpkgs { inherit system; };
+      pythonPackages = pythonPackages: with pkgs.python313Packages; [
+        requests
+      ];
       serverPkgs = [
         # home-manager.nixosModules.home-manager {
         #   home-manager.useGlobalPkgs = true;
@@ -148,5 +152,6 @@
           ] ++ serverPkgs;
         };
       };
-      };
+      devShells.${system}.default = import ./shell.nix { inherit pkgs; };
+    };
 }

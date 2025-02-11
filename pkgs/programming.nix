@@ -8,5 +8,6 @@
     python313
     fnm
     vscodium
+    direnv
   ];
 }
