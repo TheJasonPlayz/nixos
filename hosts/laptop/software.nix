@@ -26,5 +26,9 @@
       package = inputs.foundryvtt.packages.${pkgs.system}.foundryvtt_12;
     };
     blueman.enable = true;
+    xrdp = {
+      enable = true;
+      openFirewall = true;
+    };
   };
 }
