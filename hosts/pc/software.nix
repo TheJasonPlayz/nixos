@@ -30,5 +30,6 @@
       upnp = true;
       package = inputs.foundryvtt.packages.${pkgs.system}.foundryvtt_12;
     };
+    onedrive.enable = true;
   };
 }

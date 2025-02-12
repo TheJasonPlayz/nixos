@@ -6,5 +6,6 @@
     gparted
     anki-bin
     obsidian
+    adobe-reader
   ];
 }

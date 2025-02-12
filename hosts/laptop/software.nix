@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   security.rtkit.enable = true;
@@ -16,5 +16,14 @@
 
   services = {
     openssh.enable = true;
+    foundryvtt = {
+      enable = true;
+      hostName = "jasonw-pc";
+      minifyStaticFiles = true;
+      proxyPort = 443;
+      proxySSL = true;
+      upnp = true;
+      package = inputs.foundryvtt.packages.${pkgs.system}.foundryvtt_12;
+    };
   };
 }

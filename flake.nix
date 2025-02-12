@@ -32,9 +32,6 @@
       timeZone = "America/Denver";
       nixosSystem = nixpkgs.lib.nixosSystem;
       pkgs = import nixpkgs { inherit system; };
-      pythonPackages = pythonPackages: with pkgs.python313Packages; [
-        requests
-      ];
       serverPkgs = [
         # home-manager.nixosModules.home-manager {
         #   home-manager.useGlobalPkgs = true;
@@ -56,6 +53,7 @@
         #   home-manager.useUserPackages = true;
         # }
         sops-nix.nixosModules.sops
+        foundryvtt.nixosModules.foundryvtt
         ./pkgs/base.nix
         ./pkgs/k8s.nix
         ./pkgs/gaming.nix
@@ -110,6 +108,10 @@
                   enable = true;
                   pkiBundle = "/etc/secureboot";
                 };
+                environment.systemPackages = with pkgs; [
+                  sbctl
+                  ntfs3g
+                ];
               })
           ] ++ pcPkgs;
         };
