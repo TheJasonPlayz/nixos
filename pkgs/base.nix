@@ -1,5 +1,5 @@
 { pkgs, lib, config, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ wget sops age jq unzip fd parted libimobiledevice usbmuxd git];
+  environment.systemPackages = with pkgs; [ rsync rclone wget sops age jq unzip fd parted libimobiledevice usbmuxd git];
 }

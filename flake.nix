@@ -117,6 +117,7 @@
         };
         laptop1 = nixosSystem {
           inherit system;
+          specialArgs = { inherit inputs; } ;
           modules = [
             ./config/nixos.nix
             ./config/nixpkgs.nix
