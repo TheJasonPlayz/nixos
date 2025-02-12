@@ -2,10 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
-    discord
+    vesktop
     gparted
     anki-bin
     obsidian
-    adobe-reader
   ];
 }

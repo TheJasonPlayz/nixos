@@ -5,5 +5,6 @@
     davinci-resolve
     # natron
     tartube-yt-dlp
+    inkscape
   ];
 }
