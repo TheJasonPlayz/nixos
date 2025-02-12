@@ -92,6 +92,7 @@
             ./config/display.nix
             ./config/users.nix 
             ./config/i18n.nix
+            ./config/services.nix
             ./hosts/pc/boot.nix
             ./hosts/pc/hardware.nix
             ./hosts/pc/software.nix
@@ -125,6 +126,7 @@
             ./config/display.nix
             ./config/users.nix 
             ./config/i18n.nix
+            ./config/services.nix
             ./hosts/laptop/boot.nix
             ./hosts/laptop/hardware.nix
             ./hosts/laptop/software.nix
