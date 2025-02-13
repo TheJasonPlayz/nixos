@@ -16,6 +16,13 @@
     steam.enable = true;
     droidcam.enable = true;
     chromium.enable = true;
+    gnupg = {
+      agent = {
+        enable = true;
+        pinentryFlavor = "qt";
+        enableSSHSupport = true;
+      };
+    };
     # obs-studio.enableVirtualCamera = true;
   };
 

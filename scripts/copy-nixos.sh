@@ -5,7 +5,7 @@ COPY_DIR=$(pwd)
 SCRIPT_DIR="$COPY_DIR/scripts"
 COMMIT_MESSAGE="Updates"
 
-nix develop
+# nix develop
 
 python ./scripts/latest-xmage.py;
 git pull; git add -A;
