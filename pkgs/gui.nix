@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 
 {
-  environment.systemPackages = with pkgs; [vews
+  environment.systemPackages = with pkgs; [
     vesktop
     gparted
     anki-bin
