@@ -5,8 +5,10 @@ COPY_DIR=$(pwd)
 SCRIPT_DIR="$COPY_DIR/scripts"
 COMMIT_MESSAGE="Updates"
 
+nix develop
+
 python ./scripts/latest-xmage.py;
-git pull;
+git pull; git add -A;
 
 read -p "To or from $NIXOS_DIR (anything else: to) (1: from)" direction;
 read -p "Switch? (n/anything else): " switch;
@@ -24,16 +26,16 @@ if [[ "$switch" != "n" ]] then
     "$prefix-pc")
       HOST="pc"
       ;;
-    "$prefix-laptop1")
-      HOST="laptop1"
+    "$prefix-laptop")
+      HOST="laptop"
       ;;
-    "$prefix-laptop2")
-      HOST="laptop2"
+    "$prefix-server1")
+      HOST="server1"
       ;;
   esac
   sudo nixos-rebuild switch --flake "/etc/nixos#$HOST" "$@";
 fi
 
-git add -A; git commit -m "$COMMIT_MESSAGE"; git push;
+git commit -m "$COMMIT_MESSAGE"; git push;
 
 # ./sage-jupyter.sh

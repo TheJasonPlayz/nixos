@@ -123,7 +123,7 @@
               })
           ] ++ pcPkgs;
         };
-        laptop1 = nixosSystem {
+        laptop = nixosSystem {
           inherit system;
           specialArgs = { inherit inputs username; } ;
           modules = [
@@ -138,7 +138,7 @@
             ./hosts/laptop/hardware.nix
             ./hosts/laptop/software.nix
             ({pkgs, ...}: {
-                networking.hostName = "${username}-laptop1";
+                networking.hostName = "${username}-laptop";
                 time.timeZone = timeZone;
                 # home-manager.users.${username}.imports = {
                 #   
@@ -146,7 +146,7 @@
             })
           ] ++ laptopPkgs;
         };
-        laptop2 = nixosSystem {
+        server1 = nixosSystem {
           inherit system;
           modules = [
             ./config/users.nix 
@@ -155,7 +155,7 @@
             ./hosts/server/hardware.nix
             ./hosts/server/software.nix
             ({pkgs, ...}: {
-              networking.hostName = "${username}-laptop2";
+              networking.hostName = "${username}-server1";
               time.timeZone = timeZone;
               # home-manager.users.${username}.imports = {
               #   
