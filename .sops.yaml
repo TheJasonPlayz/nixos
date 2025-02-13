@@ -1,9 +1,0 @@
-keys:
-  - &jason_whitman age1qe3suhy42vc5an7rxdefrl45jj6za6d99f8nt262t68l66h2peqqhrk90p
-  - &servers age1jmakxk0sr6q9nq2qx8zfltz2gcjmtn3wkavna46ast34w3xn8vuqzerpas
-creation_rules:
-  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
-    key_groups:
-      - age:
-        - *jason_whitman
-        - *servers
