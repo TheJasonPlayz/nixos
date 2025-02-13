@@ -19,7 +19,7 @@ final: prev: {
 
     src = final.fetchurl {
       inherit url;
-      sha256 = "";
+      sha256 = "sha256-zpCUDApYZXHDEjwFOtg+L/5Es4J96F4Z2ojFcrzYumo=";
     };
 
     installPhase = builtins.replaceStrings ["1.4.50"] [ (installPhaseVer final version) ] prevAttrs.installPhase + (xmage-server final);
