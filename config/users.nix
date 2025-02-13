@@ -1,7 +1,7 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, username, ... }:
 
 {
-  users.users.jasonw = {
+  users.users.${username} = {
     isNormalUser = true;
     description = "Jason Whitman";
     extraGroups = [ "networkmanager" "wheel" ]; 

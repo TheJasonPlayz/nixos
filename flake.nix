@@ -30,6 +30,7 @@
     let
       system = "x86_64-linux";
       timeZone = "America/Denver";
+      username = "jasonw";
       nixosSystem = nixpkgs.lib.nixosSystem;
       pkgs = import nixpkgs { inherit system; };
       serverPkgs = [
@@ -96,29 +97,40 @@
             ./hosts/pc/boot.nix
             ./hosts/pc/hardware.nix
             ./hosts/pc/software.nix
-            ({pkgs, ...}: 
+            ({pkgs, config, ...}: 
               {
-                networking.hostName = "jasonw-pc";
+                networking.hostName = "${username}-pc";
                 time.timeZone = timeZone;
+
                 # environment.systemPackages = with pkgs; [ nixd nixfmt-rfc-style vscodium git ];
                 # home-manager.users.${username}.imports = {
                 #   
                 # }
+
                 boot.loader.systemd-boot.enable = nixpkgs.lib.mkForce false;
                 boot.lanzaboote = {
                   enable = true;
                   pkiBundle = "/etc/secureboot";
                 };
+
                 environment.systemPackages = with pkgs; [
                   sbctl
                   ntfs3g
                 ];
+
+                sops = {
+                  defaultSopsFile = ./secrets/secrets.yaml;
+                  age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
+                  secrets = {
+                    "ssh/keys" = {};
+                  };
+                };
               })
           ] ++ pcPkgs;
         };
         laptop1 = nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; } ;
+          specialArgs = { inherit inputs username; } ;
           modules = [
             ./config/nixos.nix
             ./config/nixpkgs.nix
@@ -131,7 +143,7 @@
             ./hosts/laptop/hardware.nix
             ./hosts/laptop/software.nix
             ({pkgs, ...}: {
-                networking.hostName = "jasonw-laptop1";
+                networking.hostName = "${username}-laptop1";
                 time.timeZone = timeZone;
                 # home-manager.users.${username}.imports = {
                 #   
@@ -148,7 +160,7 @@
             ./hosts/server/hardware.nix
             ./hosts/server/software.nix
             ({pkgs, ...}: {
-              networking.hostName = "jasonw-laptop2";
+              networking.hostName = "${username}-laptop2";
               time.timeZone = timeZone;
               # home-manager.users.${username}.imports = {
               #   

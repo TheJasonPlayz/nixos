@@ -11,13 +11,18 @@
       fsType = "xfs";
     };
     "/boot" = {
-      device = "dev/disk/by-partuuid/c913de29-e9e7-4b88-bdfd-321cf6f50b31";
+      device = "/dev/disk/by-partuuid/c913de29-e9e7-4b88-bdfd-321cf6f50b31";
       fsType = "vfat";
+    };
+    "/mnt/windows" = {
+      device = "/dev/disk/by-partuuid/dc41c2fc-4a88-45e3-92fd-a820a888852f";
+      fsType = "ntfs";
     };
   };
 
   boot.supportedFilesystems = {
     xfs = true;
+    ntfs-3g = true;
   };
   boot.loader = {
     timeout = 15;

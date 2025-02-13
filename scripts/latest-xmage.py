@@ -23,7 +23,6 @@ release_ver = json_data["tag_name"]
 zip_name = json_data["assets"][0]["name"]
 zip_url = json_data["assets"][0]["browser_download_url"]
 sha256_sum = run(["nix", "hash", "file", zip_name], stdout=PIPE).stdout.strip().decode("utf-8")
-print(release_ver, zip_name, zip_url, sha256_sum, VER_RE, URL_RE, SHA256_RE, sep="\n")
 
 def sub_overlay(pattern, string):
     with open(OVERLAY) as i:
