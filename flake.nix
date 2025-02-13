@@ -122,7 +122,7 @@
                     defaultSopsFile = ./secrets/sops.yaml;
                     age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
                     secrets = {
-                      "ssh/id_ed25519" = {};
+                      "ssh/id_ed25519.pub" = {};
                     };
                 };
               })
