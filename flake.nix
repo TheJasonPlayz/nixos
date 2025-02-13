@@ -85,7 +85,7 @@
       nixosConfigurations = {
         pc = nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; } ;
+          specialArgs = { inherit inputs username; } ;
           modules = [
             ./config/nixos.nix
             ./config/nixpkgs.nix
