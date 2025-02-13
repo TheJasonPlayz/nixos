@@ -6,8 +6,8 @@ SCRIPT_DIR="$COPY_DIR/scripts"
 COMMIT_MESSAGE="Updates"
 
 # nix develop
+# python ./scripts/latest-xmage.py;
 
-python ./scripts/latest-xmage.py;
 git pull; git add -A;
 
 read -p "To or from $NIXOS_DIR (anything else: to) (1: from)" direction;

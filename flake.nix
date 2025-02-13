@@ -119,6 +119,9 @@
                 ];
 
                 sops = {
+                    defaultSopsFile = ./secrets/sops.yaml;
+                    sops.age.keytFile = "/home/${username}/.config/sops/age/keys.txt";
+                    sops.secrets."ssh/id_ed25519" = {};
                 };
               })
           ] ++ pcPkgs;
