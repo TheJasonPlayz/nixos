@@ -5,4 +5,5 @@
     openssh.enable = true;
     rsyncd.enable = true;
   };
+  programs.direnv.enable = true;
 }

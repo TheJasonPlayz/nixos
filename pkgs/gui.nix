@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    vesktop
+    dorian
     gparted
     anki-bin
     obsidian
